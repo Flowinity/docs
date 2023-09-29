@@ -1,0 +1,47 @@
+spectaql:
+  displayAllServers: true
+
+introspection:
+  removeTrailingPeriodFromDescriptions: false
+  url: https://dev.privateuploader.gql.troplo.com/graphql
+  queryNameStrategy: capitalizeFirst
+  fieldExpansionDepth: 2
+
+  spectaqlDirective:
+    enable: true
+
+extensions:
+  graphqlScalarExamples: true
+
+info:
+  title: PrivateUploader API Reference
+  description: Documentation for the new PrivateUploader GraphQL API
+  termsOfService: https://privateuploader.com/policies/content
+  contact:
+    name: API Support
+    url: https://privateuploader.com/invite/privateuploader
+    email: support@privateuploader.com
+  license:
+    name: AGPLv3
+    url: https://www.gnu.org/licenses/agpl-3.0.en.html
+  X-TPU-Client:
+    - title: X-TPU-Client header
+      description: Defines what TPU client is sending the request, can be anything. TPUvNEXT is the default value.
+  X-TPU-Client-Version:
+    - title: X-TPU-Client-Version header
+      description: Determines what client version is present, this can be used to force upgrades on legacy client versions, although it's only parsed when the client is TPUvNEXT.
+
+servers:
+  - url: https://dev.privateuploader.gql.troplo.com/graphql
+    description: Development
+    headers:
+      - name: Authorization
+        example: <YOUR_TOKEN_HERE>
+        comment: Your TPU API key, can be a bot, API key, or session token.
+  - url: https://privateuploader.com/graphql
+    description: Production
+    production: true
+    headers:
+      - name: Authorization
+        example: <YOUR_TOKEN_HERE>
+        comment: Your TPU API key, can be a bot, API key, or session token.
